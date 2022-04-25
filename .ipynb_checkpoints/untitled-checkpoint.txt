@@ -1,0 +1,65 @@
+# kernal_1 = (5, 5)
+# kernal_2 = (3, 3)
+# model2 = Sequential()
+# # Input and 1st hidden layer
+# model2.add(Conv2D(32, kernal_1, activation='relu', input_shape=in_shape))
+# model2.add(Conv2D(32, kernal_2, activation='relu'))
+# model2.add(BatchNormalization())
+# model2.add(MaxPooling2D(pool_size=pool_size))
+# model2.add(Dropout(0.25))
+
+# # 2nd hidden layer
+# model2.add(Conv2D(64, kernal_2, activation='relu'))
+# model2.add(BatchNormalization())
+# model2.add(MaxPooling2D(pool_size=pool_size))
+# model2.add(Dropout(0.25))
+
+# # 3rd hidden layer
+# model2.add(Conv2D(128, kernal_2, activation='relu'))
+# model2.add(BatchNormalization())
+# model2.add(MaxPooling2D(pool_size=(2, 2)))
+# model2.add(Dropout(0.25))
+
+# # Final hidden layer and output layer
+# model2.add(Flatten())
+# model2.add(Dense(512, activation='relu'))      
+# model2.add(BatchNormalization())
+# model2.add(Dropout(0.5))
+# model2.add(Dense(categories, activation='softmax'))
+          
+# # Compile the model
+# opt = tf.keras.optimizers.Adam(learning_rate=0.1)
+# model2.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['accuracy']) 
+# model2.summary()          
+
+
+# batch_size = 128
+# epochs = 10
+# hist2 = model2.fit(x_train, y_train, batch_size, epochs=epochs, verbose=1, validation_data=(x_valid, y_valid))
+# model2.save('fashion_2.h5')
+
+
+
+
+
+
+# from tensorflow.keras.optimizers import SGD
+# model3 = Sequential()
+# model3.add(Conv2D(32, (3, 3), activation='relu', kernel_initializer='he_uniform', padding='same', input_shape=(32, 32, 3)))
+# model3.add(Conv2D(32, (3, 3), activation='relu', kernel_initializer='he_uniform', padding='same'))
+# model3.add(MaxPooling2D((2, 2)))
+# model3.add(Conv2D(64, (3, 3), activation='relu', kernel_initializer='he_uniform', padding='same'))
+# model3.add(Conv2D(64, (3, 3), activation='relu', kernel_initializer='he_uniform', padding='same'))
+# model3.add(MaxPooling2D((2, 2)))
+# model3.add(Conv2D(128, (3, 3), activation='relu', kernel_initializer='he_uniform', padding='same'))
+# model3.add(Conv2D(128, (3, 3), activation='relu', kernel_initializer='he_uniform', padding='same'))
+# model3.add(MaxPooling2D((2, 2)))
+# model3.add(Flatten())
+# model3.add(Dense(128, activation='relu', kernel_initializer='he_uniform'))
+# model3.add(Dense(10, activation='softmax'))
+# # compile model
+# opt = SGD(lr=0.001, momentum=0.9)
+# model3.compile(optimizer=opt, loss='categorical_crossentropy', metrics=['accuracy'])
+
+# hist3 = model3.fit(x_train, y_train, batch_size, epochs=epochs, verbose=1, validation_data=(x_valid, y_valid))
+# model3.save('fashion_3.h5')
